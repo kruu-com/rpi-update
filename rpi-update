@@ -8,7 +8,7 @@ REPO_API_URI=${REPO_URI/github.com/api.github.com\/repos}
 REPO_CONTENT_URI=${REPO_URI/github.com/raw.githubusercontent.com}
 
 UPDATE_SELF=${UPDATE_SELF:-1}
-UPDATE_REPO_URI="https://github.com/Hexxeh/rpi-update"
+UPDATE_REPO_URI="https://github.com/kruu-com/rpi-update"
 UPDATE_REPO_CONTENT_URI=${UPDATE_REPO_URI/github.com/raw.githubusercontent.com}
 UPDATE_URI="${UPDATE_REPO_CONTENT_URI}/master/rpi-update"
 
@@ -441,7 +441,7 @@ function do_update {
 
 function download_rev {
 	if [[ ${SKIP_DOWNLOAD} -eq 0 ]]; then
-		local FW_TARBALL_URI=${REPO_URI}/tarball/${FW_REV}
+		local FW_TARBALL_URI=https://codeload.github.com/Hexxeh/rpi-firmware/legacy.tar.gz/${FW_REV}
 		if ! eval curl -fs ${CURL_OPTIONS} --output /dev/null --head "${FW_TARBALL_URI}"; then
 			echo "Invalid git hash specified"
 			exit 1
